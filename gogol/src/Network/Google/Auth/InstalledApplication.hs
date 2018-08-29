@@ -125,17 +125,18 @@ formAccessTypeURLWith c a ss = formURLWith c ss
 exchangeCode :: (MonadIO m, MonadCatch m)
              => OAuthClient
              -> (OAuthCode s)
+             -> Text
              -> Logger
              -> Manager
              -> m (OAuthToken s)
-exchangeCode c n = refreshRequest $
+exchangeCode c n u = refreshRequest $
     tokenRequest
         { Client.requestBody = textBody $
                "grant_type=authorization_code"
             <> "&client_id="     <> toQueryParam (_clientId     c)
             <> "&client_secret=" <> toQueryParam (_clientSecret c)
             <> "&code="          <> toQueryParam n
-            <> "&redirect_uri="  <> redirectURI
+            <> "&redirect_uri="  <> u
         }
 
 -- | Perform a refresh to obtain a valid 'OAuthToken' with a new expiry time.

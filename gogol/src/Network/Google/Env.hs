@@ -141,3 +141,6 @@ newEnvWith :: (MonadIO m, MonadCatch m, AllowScopes s)
            -> Manager
            -> m (Env s)
 newEnvWith c l m = Env mempty l m <$> initStore c l m
+
+
+  
