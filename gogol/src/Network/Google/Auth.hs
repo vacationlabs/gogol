@@ -168,8 +168,9 @@ exchange c l = fmap (Auth c) . action l
     action = case c of
         FromMetadata s    -> metadataToken       s
         FromAccount  a    -> serviceAccountToken a (Proxy :: Proxy s)
-        FromClient   x n  -> exchangeCode        x n
+        FromClient   x n  -> exchangeCode        x n redirectURI
         FromUser     u    -> authorizedUserToken u Nothing
+        FromServerSideWebApp x n u -> exchangeCode x n u
 
 -- | Refresh an existing 'OAuthToken'.
 refresh :: forall m s. (MonadIO m, MonadCatch m, AllowScopes s)
@@ -184,6 +185,7 @@ refresh (Auth c t) l = fmap (Auth c) . action l
         FromAccount  a   -> serviceAccountToken a (Proxy :: Proxy s)
         FromClient   x _ -> refreshToken        x t
         FromUser     u   -> authorizedUserToken u (_tokenRefresh t)
+        FromServerSideWebApp x _ _ -> refreshToken x t
 
 -- | Apply the (by way of possible token refresh) a bearer token to the
 -- authentication header of a request.
