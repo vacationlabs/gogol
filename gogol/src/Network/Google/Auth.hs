@@ -167,14 +167,17 @@ exchange :: forall m s. (MonadIO m, MonadCatch m, AllowScopes s)
          -> Logger
          -> Manager
          -> m (Auth s)
-exchange c l = fmap (Auth c) . action l
-  where
-    action = case c of
-        FromMetadata s    -> metadataToken       s
-        FromAccount  a    -> serviceAccountToken a (Proxy :: Proxy s)
-        FromClient   x n  -> exchangeCode        x n redirectURI
-        FromUser     u    -> authorizedUserToken u Nothing
-        FromServerSideWebApp x n u -> exchangeCode x n u
+exchange c l m = case c of
+  FromMetadata s    -> (Auth c) <$> (metadataToken s l m)
+  FromAccount  a    -> (Auth c) <$> (serviceAccountToken a (Proxy :: Proxy s) l m)
+  FromClient   x n  -> (Auth c) <$> (exchangeCode x n redirectURI l m)
+  FromUser     u    -> (Auth c) <$> (authorizedUserToken u Nothing l m)
+  FromServerSideWebApp x n u -> (Auth c) <$> (exchangeCode x n u l m)
+  FromOAuthToken _ tkn -> do
+    curTime <- liftIO getCurrentTime
+    if (_tokenExpiry tkn) < curTime
+      then refresh (Auth { _credentials = c, _token = tkn}) l m
+      else pure $ Auth { _credentials = c, _token = tkn}
 
 -- | Refresh an existing 'OAuthToken'.
 refresh :: forall m s. (MonadIO m, MonadCatch m, AllowScopes s)
@@ -190,6 +193,7 @@ refresh (Auth c t) l = fmap (Auth c) . action l
         FromClient   x _ -> refreshToken        x t
         FromUser     u   -> authorizedUserToken u (_tokenRefresh t)
         FromServerSideWebApp x _ _ -> refreshToken x t
+        FromOAuthToken oauthClient_ tkn -> refreshToken oauthClient_ tkn
 
 -- | Apply the (by way of possible token refresh) a bearer token to the
 -- authentication header of a request.
