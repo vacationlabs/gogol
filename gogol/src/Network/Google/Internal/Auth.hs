@@ -73,6 +73,7 @@ data Credentials (s :: [Symbol])
       -- of the Google CloudSDK Tools.
 
     | FromServerSideWebApp !OAuthClient !(OAuthCode s) !Text
+    | FromOAuthToken !OAuthClient !(OAuthToken s)
 
 {-| Service Account credentials which are typically generated/download
 from the Google Developer console of the following form:
