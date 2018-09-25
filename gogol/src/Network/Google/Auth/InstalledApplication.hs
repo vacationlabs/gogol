@@ -149,7 +149,7 @@ refreshToken :: (MonadIO m, MonadCatch m)
              -> Manager
              -> m (OAuthToken s)
 refreshToken c t = refreshRequest $
-    accountsRequest
+    tokenRequest
         { Client.requestBody = textBody $
                "grant_type=refresh_token"
             <> "&client_id="     <> toQueryParam (_clientId     c)
