@@ -161,9 +161,7 @@ instance GoogleRequest
         type Rs SpreadsheetsDeveloperMetadataGet =
              DeveloperMetadata
         type Scopes SpreadsheetsDeveloperMetadataGet =
-             '["https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.file",
-               "https://www.googleapis.com/auth/spreadsheets"]
+             '["https://www.googleapis.com/auth/drive.file"]
         requestClient SpreadsheetsDeveloperMetadataGet'{..}
           = go _sdmgSpreadsheetId _sdmgMetadataId _sdmgXgafv
               _sdmgUploadProtocol
