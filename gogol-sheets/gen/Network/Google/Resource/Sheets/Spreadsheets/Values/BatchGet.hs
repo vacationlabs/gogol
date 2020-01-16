@@ -200,11 +200,7 @@ instance GoogleRequest SpreadsheetsValuesBatchGet
         type Rs SpreadsheetsValuesBatchGet =
              BatchGetValuesResponse
         type Scopes SpreadsheetsValuesBatchGet =
-             '["https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.file",
-               "https://www.googleapis.com/auth/drive.readonly",
-               "https://www.googleapis.com/auth/spreadsheets",
-               "https://www.googleapis.com/auth/spreadsheets.readonly"]
+             '["https://www.googleapis.com/auth/drive.file"]
         requestClient SpreadsheetsValuesBatchGet'{..}
           = go _svbgSpreadsheetId _svbgXgafv
               _svbgValueRenderOption

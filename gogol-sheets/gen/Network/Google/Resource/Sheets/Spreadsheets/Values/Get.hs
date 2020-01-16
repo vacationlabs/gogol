@@ -195,11 +195,7 @@ svgCallback
 instance GoogleRequest SpreadsheetsValuesGet where
         type Rs SpreadsheetsValuesGet = ValueRange
         type Scopes SpreadsheetsValuesGet =
-             '["https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.file",
-               "https://www.googleapis.com/auth/drive.readonly",
-               "https://www.googleapis.com/auth/spreadsheets",
-               "https://www.googleapis.com/auth/spreadsheets.readonly"]
+             '["https://www.googleapis.com/auth/drive.file"]
         requestClient SpreadsheetsValuesGet'{..}
           = go _svgSpreadsheetId _svgRange _svgXgafv
               _svgValueRenderOption

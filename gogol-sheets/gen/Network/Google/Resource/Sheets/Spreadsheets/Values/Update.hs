@@ -221,9 +221,7 @@ instance GoogleRequest SpreadsheetsValuesUpdate where
         type Rs SpreadsheetsValuesUpdate =
              UpdateValuesResponse
         type Scopes SpreadsheetsValuesUpdate =
-             '["https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.file",
-               "https://www.googleapis.com/auth/spreadsheets"]
+             '["https://www.googleapis.com/auth/drive.file"]
         requestClient SpreadsheetsValuesUpdate'{..}
           = go _svuSpreadsheetId _svuRange _svuXgafv
               _svuUploadProtocol

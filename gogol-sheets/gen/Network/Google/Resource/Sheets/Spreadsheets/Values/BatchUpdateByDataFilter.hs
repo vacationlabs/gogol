@@ -163,9 +163,7 @@ instance GoogleRequest
              BatchUpdateValuesByDataFilterResponse
         type Scopes SpreadsheetsValuesBatchUpdateByDataFilter
              =
-             '["https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.file",
-               "https://www.googleapis.com/auth/spreadsheets"]
+             '["https://www.googleapis.com/auth/drive.file"]
         requestClient
           SpreadsheetsValuesBatchUpdateByDataFilter'{..}
           = go _svbubdfSpreadsheetId _svbubdfXgafv

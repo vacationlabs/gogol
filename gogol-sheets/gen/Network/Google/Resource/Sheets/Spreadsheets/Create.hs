@@ -136,9 +136,7 @@ scCallback
 instance GoogleRequest SpreadsheetsCreate where
         type Rs SpreadsheetsCreate = Spreadsheet
         type Scopes SpreadsheetsCreate =
-             '["https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.file",
-               "https://www.googleapis.com/auth/spreadsheets"]
+             '["https://www.googleapis.com/auth/drive.file"]
         requestClient SpreadsheetsCreate'{..}
           = go _scXgafv _scUploadProtocol _scAccessToken
               _scUploadType

@@ -175,9 +175,7 @@ instance GoogleRequest SpreadsheetsBatchUpdate where
         type Rs SpreadsheetsBatchUpdate =
              BatchUpdateSpreadsheetResponse
         type Scopes SpreadsheetsBatchUpdate =
-             '["https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.file",
-               "https://www.googleapis.com/auth/spreadsheets"]
+             '["https://www.googleapis.com/auth/drive.file"]
         requestClient SpreadsheetsBatchUpdate'{..}
           = go _sbuSpreadsheetId _sbuXgafv _sbuUploadProtocol
               _sbuAccessToken

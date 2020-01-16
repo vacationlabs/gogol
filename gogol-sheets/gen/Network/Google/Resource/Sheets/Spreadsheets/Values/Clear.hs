@@ -168,9 +168,7 @@ svcCallback
 instance GoogleRequest SpreadsheetsValuesClear where
         type Rs SpreadsheetsValuesClear = ClearValuesResponse
         type Scopes SpreadsheetsValuesClear =
-             '["https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.file",
-               "https://www.googleapis.com/auth/spreadsheets"]
+             '["https://www.googleapis.com/auth/drive.file"]
         requestClient SpreadsheetsValuesClear'{..}
           = go _svcSpreadsheetId _svcRange _svcXgafv
               _svcUploadProtocol

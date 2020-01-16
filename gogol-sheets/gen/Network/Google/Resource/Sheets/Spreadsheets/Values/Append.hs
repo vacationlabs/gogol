@@ -250,9 +250,7 @@ instance GoogleRequest SpreadsheetsValuesAppend where
         type Rs SpreadsheetsValuesAppend =
              AppendValuesResponse
         type Scopes SpreadsheetsValuesAppend =
-             '["https://www.googleapis.com/auth/drive",
-               "https://www.googleapis.com/auth/drive.file",
-               "https://www.googleapis.com/auth/spreadsheets"]
+             '["https://www.googleapis.com/auth/drive.file"]
         requestClient SpreadsheetsValuesAppend'{..}
           = go _svaSpreadsheetId _svaRange _svaXgafv
               _svaUploadProtocol
