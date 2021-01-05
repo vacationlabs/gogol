@@ -1,0 +1,103 @@
+name:                  gogol-analyticsadmin
+version:               0.5.0
+synopsis:              Google Analytics Admin SDK.
+homepage:              https://github.com/brendanhay/gogol
+bug-reports:           https://github.com/brendanhay/gogol/issues
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2015-2016 Brendan Hay
+category:              Network, Google, Cloud
+build-type:            Simple
+cabal-version:         >= 1.10
+extra-source-files:    README.md src/.gitkeep
+
+description:
+
+    .
+    /Warning:/ This is an experimental prototype/preview release which is still
+    under exploratory development and not intended for public use, caveat emptor!
+    .
+    This library is compatible with version @v1alpha@
+    of the API.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/gogol.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.Google.AnalyticsAdmin
+        , Network.Google.AnalyticsAdmin.Types
+        , Network.Google.Resource.AnalyticsAdmin.AccountSummaries.List
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.Delete
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.Get
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.GetDataSharingSettings
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.List
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.Patch
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.ProvisionAccountTicket
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.Audit
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.BatchCreate
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.BatchDelete
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.BatchGet
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.BatchUpdate
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.Create
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.Delete
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.Get
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.List
+        , Network.Google.Resource.AnalyticsAdmin.Accounts.UserLinks.Patch
+        , Network.Google.Resource.AnalyticsAdmin.Properties.AndroidAppDataStreams.Create
+        , Network.Google.Resource.AnalyticsAdmin.Properties.AndroidAppDataStreams.Delete
+        , Network.Google.Resource.AnalyticsAdmin.Properties.AndroidAppDataStreams.Get
+        , Network.Google.Resource.AnalyticsAdmin.Properties.AndroidAppDataStreams.List
+        , Network.Google.Resource.AnalyticsAdmin.Properties.AndroidAppDataStreams.Patch
+        , Network.Google.Resource.AnalyticsAdmin.Properties.Create
+        , Network.Google.Resource.AnalyticsAdmin.Properties.Delete
+        , Network.Google.Resource.AnalyticsAdmin.Properties.FirebaseLinks.Create
+        , Network.Google.Resource.AnalyticsAdmin.Properties.FirebaseLinks.Delete
+        , Network.Google.Resource.AnalyticsAdmin.Properties.FirebaseLinks.List
+        , Network.Google.Resource.AnalyticsAdmin.Properties.FirebaseLinks.Patch
+        , Network.Google.Resource.AnalyticsAdmin.Properties.Get
+        , Network.Google.Resource.AnalyticsAdmin.Properties.GoogleAdsLinks.Create
+        , Network.Google.Resource.AnalyticsAdmin.Properties.GoogleAdsLinks.Delete
+        , Network.Google.Resource.AnalyticsAdmin.Properties.GoogleAdsLinks.List
+        , Network.Google.Resource.AnalyticsAdmin.Properties.GoogleAdsLinks.Patch
+        , Network.Google.Resource.AnalyticsAdmin.Properties.IosAppDataStreams.Create
+        , Network.Google.Resource.AnalyticsAdmin.Properties.IosAppDataStreams.Delete
+        , Network.Google.Resource.AnalyticsAdmin.Properties.IosAppDataStreams.Get
+        , Network.Google.Resource.AnalyticsAdmin.Properties.IosAppDataStreams.List
+        , Network.Google.Resource.AnalyticsAdmin.Properties.IosAppDataStreams.Patch
+        , Network.Google.Resource.AnalyticsAdmin.Properties.List
+        , Network.Google.Resource.AnalyticsAdmin.Properties.Patch
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.Audit
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.BatchCreate
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.BatchDelete
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.BatchGet
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.BatchUpdate
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.Create
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.Delete
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.Get
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.List
+        , Network.Google.Resource.AnalyticsAdmin.Properties.UserLinks.Patch
+        , Network.Google.Resource.AnalyticsAdmin.Properties.WebDataStreams.Create
+        , Network.Google.Resource.AnalyticsAdmin.Properties.WebDataStreams.Delete
+        , Network.Google.Resource.AnalyticsAdmin.Properties.WebDataStreams.Get
+        , Network.Google.Resource.AnalyticsAdmin.Properties.WebDataStreams.GetEnhancedMeasurementSettings
+        , Network.Google.Resource.AnalyticsAdmin.Properties.WebDataStreams.GetGlobalSiteTag
+        , Network.Google.Resource.AnalyticsAdmin.Properties.WebDataStreams.List
+        , Network.Google.Resource.AnalyticsAdmin.Properties.WebDataStreams.Patch
+        , Network.Google.Resource.AnalyticsAdmin.Properties.WebDataStreams.UpdateEnhancedMeasurementSettings
+
+    other-modules:
+          Network.Google.AnalyticsAdmin.Types.Product
+        , Network.Google.AnalyticsAdmin.Types.Sum
+
+    build-depends:
+          gogol-core == 0.5.0.*
+        , base       >= 4.7 && < 5
